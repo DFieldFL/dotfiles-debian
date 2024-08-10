@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install -y curl git zsh zinit tmux tmux-plugin-manager bat fzf btop tig neovim zoxide
+sudo apt install -y curl git zsh tmux tmux-plugin-manager bat fzf btop tig neovim zoxide
 
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
