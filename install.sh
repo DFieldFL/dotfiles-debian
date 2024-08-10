@@ -2,14 +2,13 @@ sudo apt update
 sudo apt install -y curl git zsh tmux bat fzf btop tig zoxide
 
 # this is needed to do add-apt-repository
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-mkdir -p $HOME/.local/bin
-mv nvim.appimage $HOME/.local/bin/nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
