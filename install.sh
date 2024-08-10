@@ -1,9 +1,6 @@
 sudo apt update
 sudo apt install -y curl git zsh tmux bat fzf btop tig zoxide
 
-# this is needed to do add-apt-repository
-sudo apt-get install -y software-properties-common
-
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -LOs https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
