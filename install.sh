@@ -6,18 +6,19 @@ sudo apt-get install -y software-properties-common
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+curl -LOs https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
+# ~/.zshrc sets the PATH for nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+curl -Los lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 
-sudo add-apt-repository ppa:aos1/diff-so-fancy
-sudo apt update
-sudo apt install -y diff-so-fancy
+curl -LOs https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.4/diff-so-fancy
+chmod +x diff-so-fancy
+mv diff-so-fancy $HOME/.local/bin/
 
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
